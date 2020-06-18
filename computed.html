@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Computed Properties</title>
+</head>
+
+<body>
+   <div id="computed">
+
+      <h2>Nome: {{ person.firstName }}</h2>
+      <h2>Nome completo: {{ fullName }} através de Computed Property</h2>
+      <h2>Nome completo: {{ getFullName() }} através de Método</h2>
+
+
+   </div>
+   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+   <script>
+      let app = new Vue({
+         el: '#computed',
+         data: {
+           person: {
+              firstName: 'Jovane',
+              lastName: 'Rocha'
+           }
+         },
+         methods: {
+            getFullName: function(){
+               return `${this.person.firstName} ${this.person.lastName}`
+            }
+         },
+         computed: {
+            fullName: function() {
+               return this.person.firstName + ' ' + this.person.lastName;
+               return `${this.person.firstName} ${this.person.lastName}`
+            }
+         }
+      })
+   </script>
+</body>
+
+</html>
